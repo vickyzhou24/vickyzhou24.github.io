@@ -14,12 +14,18 @@
     <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
     </div>
     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; isMobile: true;'>
-        <a-assets>
-            <img id="sample_image" src="20181138150108gn2wW7370a11a3cc98bb1d667431e030e0cdd.jpg" crossorigin="anonymous">
-        </a-assets>
+        
         <a-marker type='pattern' url='pringles.patt'>
             <!-- FOR GIFS -->
              <a-entity rotation="-90 0 0" geometry="primitive:plane" material="shader:gif;src:url(pringles3.gif);" gif="" transparent="true"></a-entity> 
+            <!-- FOR NON-GIF IMAGES -->
+            <!-- <a-image rotation="-90 0 0" src="#sample_image"></a-image> -->
+            <!-- FOR TEXT                    -->
+            <!--<a-entity rotation="-90 0 0" position="-1 0 0" text-geometry="value: Sample Sample Sample; size: 0.2;"></a-entity>-->
+        </a-marker>
+        <a-marker preset="hiro">
+            <!-- FOR GIFS -->
+            <a-entity rotation="-90 0 0" geometry="primitive:plane" material="shader:gif;src:url(holdit.gif);" gif="" transparent="true"></a-entity>
             <!-- FOR NON-GIF IMAGES -->
             <!-- <a-image rotation="-90 0 0" src="#sample_image"></a-image> -->
             <!-- FOR TEXT                    -->
