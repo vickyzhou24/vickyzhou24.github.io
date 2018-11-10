@@ -176,7 +176,7 @@
 
       /**
        * set texure
-       * @private
+       * @public
        * @param {Object} data
        * @property {string} status - success / error
        * @property {string} src - src url
@@ -416,7 +416,7 @@
 
       /**
        * add public functions
-       * @private
+       * @public
        */
       __addPublicFunctions: function __addPublicFunctions() {
         this.el.gif = {
@@ -499,8 +499,8 @@
 
       /**
        * clear canvas
-       * @private
-       */
+       * @public
+              */
       __clearCanvas: function __clearCanvas() {
         this.__ctx.clearRect(0, 0, this.__width, this.__height);
         this.__texture.needsUpdate = true;
@@ -509,7 +509,7 @@
 
       /**
        * draw
-       * @private
+       * @public
        */
       __draw: function __draw() {
         
@@ -523,7 +523,7 @@
 
       /**
        * setup gif animation and play if autoplay is true
-       * @private
+       * @public
        * @property {string} src - src url
        * @param {array} times - array of time length of each image
        * @param {number} cnt - total counts of gif images
@@ -560,7 +560,7 @@
       =============================*/
 
       /**
-       * @private
+       * @public
        */
 
       __reset: function __reset() {
