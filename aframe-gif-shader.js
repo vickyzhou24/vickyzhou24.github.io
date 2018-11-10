@@ -511,11 +511,21 @@
        * draw
        * @private
        */
+      __draw: function __draw() {
+    
 
+if (this.clearimg) {
+        this.__ctx.clearRect( 0, 0, this.__width, this.__height);
+    }else{
+          this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height);
+          this.__texture.needsUpdate = true;
+    }
+      if (this.clearimg)
+          this.clearimg = false;
+     else
+          this.clearimg = true;
 
-__draw: function __draw() { this.__clearCanvas(); 
-this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height); 
-this.__texture.needsUpdate = true; }
+  },
 
       /*============================
       =            ready            =
