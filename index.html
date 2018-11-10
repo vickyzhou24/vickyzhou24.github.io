@@ -16,17 +16,17 @@
         <a-assets>
             <img id="sample_image" src="20181138150108gn2wW7370a11a3cc98bb1d667431e030e0cdd.jpg" crossorigin="anonymous">
         </a-assets>
-        <a-marker-camera preset='kanji'>
+        <a-marker-camera preset='hiro'>
             <!-- FOR GIFS -->
-            <a-box position="0 0 0" width="1" height="1" depth="0" material="shader:gif;src:url(pringles1.gif);" transparent="true" gif="" rotation="" scale="" visible="" geometry=""></a-box>
+            <a-entity rotation="-90 0 0" geometry="primitive:plane" material="shader:gif;src:url(pringles1.gif);" gif="" transparent="true"></a-entity>
             <!-- FOR NON-GIF IMAGES -->
             <!-- <a-image rotation="-90 0 0" src="#sample_image"></a-image> -->
             <!-- FOR TEXT                    -->
             <!--<a-entity rotation="-90 0 0" position="-1 0 0" text-geometry="value: Sample Sample Sample; size: 0.2;"></a-entity>-->
-            </a-marker-camera>
+            </a-marker>
 
             <a-entity camera></a-entity>
-    </a-scene>
+</a-scene>
 </body>
 <script src="aframe-text-geometry-component.min.js"></script>
 <script src="aframe-gif-shader.js"></script>
