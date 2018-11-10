@@ -14,11 +14,11 @@
 <body style="margin : 0px; overflow: hidden; font-family: Monospace;">
     <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
     </div>
-    <a-scene>
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
         
         <a-marker-camera preset='hiro'>
             <!-- FOR GIFS -->
-            <a-box position="0 0 0" width="1" height="1" depth="0" material="shader:gif;src:url(pringles2.gif);" transparent="true"></a-box>>
+            <a-box position="0 0 0" width="1" height="1" depth="0" material="shader:gif;src:url(pringles2.gif);" transparent="true"></a-box>
             <!-- FOR NON-GIF IMAGES -->
             <!-- <a-image rotation="-90 0 0" src="#sample_image"></a-image> -->
             <!-- FOR TEXT                    -->
