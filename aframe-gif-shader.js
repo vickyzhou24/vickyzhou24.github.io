@@ -176,7 +176,7 @@
 
       /**
        * set texure
-       * @public
+       * @private
        * @param {Object} data
        * @property {string} status - success / error
        * @property {string} src - src url
@@ -416,7 +416,7 @@
 
       /**
        * add public functions
-       * @public
+       * @private
        */
       __addPublicFunctions: function __addPublicFunctions() {
         this.el.gif = {
@@ -499,8 +499,8 @@
 
       /**
        * clear canvas
-       * @public
-              */
+       * @private
+       */
       __clearCanvas: function __clearCanvas() {
         this.__ctx.clearRect(0, 0, this.__width, this.__height);
         this.__texture.needsUpdate = true;
@@ -509,11 +509,15 @@
 
       /**
        * draw
-       * @public
+       * @private
        */
       __draw: function __draw() {
-        
-         this.__clearCanvas(); this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height); this.__texture.needsUpdate = true;
+          // DEFAULT
+        // this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height);
+        // this.__texture.needsUpdate = true;
+
+        // WORKING FOR TRANSPARENT GIFS, BROKEN FOR NORMAL ONES
+        this.__ctx.clearRect( 0, 0, this.__width, this.__height); this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height); this.__texture.needsUpdate = true;
       },
 
 
@@ -523,7 +527,7 @@
 
       /**
        * setup gif animation and play if autoplay is true
-       * @public
+       * @private
        * @property {string} src - src url
        * @param {array} times - array of time length of each image
        * @param {number} cnt - total counts of gif images
@@ -560,7 +564,7 @@
       =============================*/
 
       /**
-       * @public
+       * @private
        */
 
       __reset: function __reset() {
@@ -585,7 +589,7 @@
     'use strict';
 
     /**
-     * 
+     *
      * Gif parser by @gtk2k
      * https://github.com/gtk2k/gtk2k.github.io/tree/master/animation_gif
      *
