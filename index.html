@@ -1,39 +1,25 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sample AR</title>
-		<script src="aframe.min.js"></script>
-		<script src="aframe-ar.js"></script>
-
-    </head>
-	<body style="margin : 0px; overflow: hidden; font-family: Monospace;"><div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-	</div>
-		<a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-
-			<a-assets>
-				<img id="sample_image" src="20181138150108gn2wW7370a11a3cc98bb1d667431e030e0cdd.jpg" crossorigin="anonymous">
-    		</a-assets>
-
-            <a-marker-camera preset='hiro'>
-
-					<!-- FOR GIFS -->
-				<a-entity rotation="-90 0 0" geometry="primitive:plane" material="shader:gif;src:url(pringles1.gif);" gif="" transparent="true"></a-entity>
-
-					<!-- FOR NON-GIF IMAGES -->
-					<!-- <a-image rotation="-90 0 0" src="#sample_image"></a-image> -->
-
-					<!-- FOR TEXT					 -->
-					<!--<a-entity rotation="-90 0 0" position="-1 0 0" text-geometry="value: Sample Sample Sample; size: 0.2;"></a-entity>-->
-			</a-marker>
-             
-			<a-entity camera></a-entity>
-		</a-scene>
-	</body>
-
-	<script src="aframe-text-geometry-component.min.js"></script>
-	<script src="aframe-gif-shader.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sample AR</title>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/ar.js/master/aframe/build/aframe-ar.js"></script>
+    <script>THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'</script>
+    <body style='margin : 0px; overflow: hidden;'>
+        <a-scene embedded artoolkit='sourceType: webcam;'>
+            <a-sphere src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg" radius="0.5" position="0 0.5 0" segments-height="53">
+                <a-animation attribute="scale"
+                             dur="1000"
+                             from="1 1 1"
+                             to="2 2 2"
+                             direction='alternate-reverse'
+                             easing="ease-in-out-circ"
+                             repeat="indefinite"></a-animation>
+            </a-sphere>
+            <a-marker-camera preset='kanji'></a-marker-camera>
+        </a-scene>
 </html>
