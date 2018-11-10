@@ -501,30 +501,24 @@
        * clear canvas
        * @private
        */
-      __clearCanvas () {
-    this.__ctx.clearRect(0, 0, this.__width, this.__height)
-    this.__texture.needsUpdate = true
-  },
+      __clearCanvas: function __clearCanvas() {
+        this.__ctx.clearRect(0, 0, this.__width, this.__height);
+        this.__texture.needsUpdate = true;
+      },
+
 
       /**
        * draw
        * @private
        */
-      __draw () {
-    if(this.__frameIdx != 0){
-      var lastFrame = this.__frames[this.__frameIdx -1 ]
-      /* Disposal method indicates if you should clear or not the background.
-      // This flag is represented in binary and is a packed field which can also represent transparency.
-      // http://matthewflickinger.com/lab/whatsinagif/animation_and_transparency.asp  */
-      if(lastFrame.disposalMethod == 8 || lastFrame.disposalMethod == 9){
-        this.__clearCanvas();
-      }
-    }
-    var actualFrame = this.__frames[this.__frameIdx]
-    this.__ctx.drawImage(actualFrame, 0, 0, this.__width, this.__height)
-    this.__texture.needsUpdate = true
-  },
+      __draw: function __draw() {
+          // DEFAULT
+        // this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height);
+        // this.__texture.needsUpdate = true;
 
+        // WORKING FOR TRANSPARENT GIFS, BROKEN FOR NORMAL ONES
+        this.__ctx.clearRect( 0, 0, this.__width, this.__height); this.__ctx.drawImage(this.__frames[this.__frameIdx], 0, 0, this.__width, this.__height); this.__texture.needsUpdate = true;
+      },
 
 
       /*============================
@@ -634,14 +628,7 @@
             pos += 1 + +!!(gif[pos] & 0x80) * (Math.pow(2, (gif[pos] & 0x07) + 1) * 3);
             while (gif[++pos]) {
               pos += gif[pos];
-            }
-            var imageData = gif.subarray(offset, pos + 1);
-            var frame = {
-             disposalMethod: graphicControl[3],
-          blob:URL.createObjectURL(new Blob([gifHeader, graphicControl, imageData]))
-        }
-
-
+            }var imageData = gif.subarray(offset, pos + 1);
             frames.push(URL.createObjectURL(new Blob([gifHeader, graphicControl, imageData])));
           } else {
             errorCB && errorCB('parseGIF: unknown blockId');break;
@@ -669,9 +656,7 @@
                 imageFix(1);
               }
             }.bind(img, null, i);
-            img.src = frames[i].blob;
-            img.disposalMethod = frames[i].disposalMethod;
-
+            img.src = src;
           });
         };
         var imageFix = function imageFix(i) {
